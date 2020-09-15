@@ -89,14 +89,14 @@
         [(ngModel)]="client.phone"
         name="phone"
           #clientPhone="ngModel"
-          minlength="10"
+          minlength="9"
           required>
         <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
           Phone is required
         </div>
 
         <div [hidden]="!clientPhone.errors?.minlength" class="invalid-feedback">
-          Must be at least 10 characters
+          Must be at least 9 characters
         </div>
       </div>
 
@@ -111,7 +111,8 @@
         [disabled]="disableBalanceOnAdd">
       </div>
 
-      <input [disabled]="!clientForm.valid" type="submit" value="Submit" class="btn btn-primary btn-block">
+      <!-- <input [disabled]="!clientForm.valid" type="submit" value="Submit" class="btn btn-primary btn-block"> -->
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
     </form>
   </div>
 </div>

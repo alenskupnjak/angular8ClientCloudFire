@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/Forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -41,7 +42,8 @@ import { AppRoutingModule } from "./app-routing.module";
     AngularFireModule.initializeApp(environment.firebaseConfig, 'cloudFirestore'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule  // obavezno dodati za template driven formu
+    FormsModule,  // obavezno dodati za template driven formu
+    FlashMessagesModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
