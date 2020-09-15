@@ -23,7 +23,7 @@
         name="firstName"
         #clientFirstName="ngModel"
         [ngClass]="{'is-invalid':clientFirstName.errors && clientFirstName.touched}"
-        [(ngModel)]="firstName"
+        [(ngModel)]="client.firstName"
         minlength="2"
         required>
 
@@ -44,12 +44,14 @@
         name="lastName"
         #clientLastName="ngModel"
         [ngClass]="{'is-invalid':clientLastName.errors && clientLastName.touched}"
-        [(ngModel)]="lastName"
+        [(ngModel)]="client.lastName"
         minlength="2"
         required>
 
+          <!--   (bootstrap class="invalid-feedback")  -->
         <div [hidden]="!clientLastName.errors?.required" class="invalid-feedback">
           Last name required
+
         </div>
 
         <div [hidden]="!clientLastName.errors?.minlength" class="invalid-feedback">
@@ -64,8 +66,10 @@
         class="form-control"
         name="email"
         #clientEmail="ngModel"
-        [ngClass]="{'is-invalid':clientEmail.errors && clientEmail.touched}" [(ngModel)]="email"
-        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+        [ngClass]="{'is-invalid':clientEmail.errors && clientEmail.touched}"
+        [(ngModel)]="client.email"
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+        required>
 
         <div [hidden]="!clientEmail.errors?.required" class="invalid-feedback">
           Email required
@@ -78,8 +82,15 @@
 
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" [ngClass]="{'is-invalid':clientPhone.errors && clientPhone.touched}"
-          [(ngModel)]="client.phone" name="phone" #clientPhone="ngModel" minlength="10" required>
+        <input
+        type="text"
+        class="form-control"
+        [ngClass]="{'is-invalid':clientPhone.errors && clientPhone.touched}"
+        [(ngModel)]="client.phone"
+        name="phone"
+          #clientPhone="ngModel"
+          minlength="10"
+          required>
         <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
           Phone is required
         </div>
@@ -95,12 +106,12 @@
         type="number"
         class="form-control"
         [(ngModel)]="client.balance"
-        name="balance"
+        name="balance"value
         #clientBalance="ngModel"
         [disabled]="disableBalanceOnAdd">
       </div>
 
-      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+      <input [disabled]="!clientForm.valid" type="submit" value="Submit" class="btn btn-primary btn-block">
     </form>
   </div>
 </div>
