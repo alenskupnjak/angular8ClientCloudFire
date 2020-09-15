@@ -39,7 +39,7 @@ import { AppRoutingModule } from "./app-routing.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloudFirestore'),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,  // obavezno dodati za template driven formu
