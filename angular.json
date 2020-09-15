@@ -124,8 +124,13 @@
               "devServerTarget": "angular8ClientCloudFire:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular8ClientCloudFire"
 }

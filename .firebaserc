@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cloudfirestore-9984e": {
+      "hosting": {
+        "angular8ClientCloudFire": [
+          "cloudfirestore-9984e"
+        ]
+      }
+    }
+  }
+}
