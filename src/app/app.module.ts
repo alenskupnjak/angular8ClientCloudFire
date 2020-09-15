@@ -4,6 +4,7 @@ import {environment} from '../environments/environment'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule } from '@angular/Forms';
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -39,7 +40,8 @@ import { AppRoutingModule } from "./app-routing.module";
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'cloudFirestore'),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule  // obavezno dodati za template driven formu
   ],
   providers: [],
   bootstrap: [AppComponent],
