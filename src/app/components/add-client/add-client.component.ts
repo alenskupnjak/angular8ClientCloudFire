@@ -31,25 +31,22 @@ export class AddClientComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(form) {
-    console.log(form);
+  onSubmit(formData) {
 
     this.client = {
-      firstName: form.value.firstName,
-      lastName: form.value.lastName,
-      email: form.value.email,
-      phone: form.value.phone,
-      balance: form.value.balance,
+      firstName: formData.value.firstName,
+      lastName: formData.value.lastName,
+      email: formData.value.email,
+      phone: formData.value.phone,
+      balance: formData.value.balance,
     };
 
-    if (form.value.balance < 0) {
+    if (formData.value.balance < 0) {
       console.log("Mora biti veci od 0");
     }
-    // if (this.disableBalanceOnAdd) {
-    //   form.balance = 0;
-    // }
 
-    if (!form.valid) {
+
+    if (!formData.valid) {
       // Show error
       this.flashMessage.show("Please fill out the form correctly", {
         cssClass: "alert-danger",

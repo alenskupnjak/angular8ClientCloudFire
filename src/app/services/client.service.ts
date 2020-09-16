@@ -8,16 +8,18 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Client } from "../models/Client";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class ClientService {
   clientsCollection: AngularFirestoreCollection<Client>;
   clientDoc: AngularFirestoreDocument<Client>;
   clients: Observable<Client[]>;
   client: Observable<Client>;
 
-  constructor(private firestoreData: AngularFirestore) {
+  constructor(
+    // kljucni parametar koji aktivira Firebase
+    private firestoreData: AngularFirestore
+    ) {
+    console.log('**** Ovo se aktivira samo prvi puta kada dolazim u aplikaciju **********');
     console.log("this.firestoreData= ", this.firestoreData);
 
     // inicijalizacije baze
@@ -77,14 +79,17 @@ export class ClientService {
     return this.client;
   }
 
+  //
   // brisanje klijenta
   deleteClient(client: Client) {
     this.clientDoc = this.firestoreData.doc(`databaseClients/${client.id}`);
     this.clientDoc.delete();
   }
 
+
+  // updatiramo klijenta
   updateClient(client: Client) {
-    // clients je nazic baze!
+    // databaseClients je naziv baze!
     this.clientDoc = this.firestoreData.doc(`databaseClients/${client.id}`);
     this.clientDoc.update(client);
   }

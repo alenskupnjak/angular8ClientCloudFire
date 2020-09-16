@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: "client/edit/:id", component: EditClientComponent },
   { path: "client/:id", component: ClientDetailComponent },
   { path: "settings", component: SettingsComponent },
+  // '**' morabiti zadnji u nizu
   { path: "**", component: NotFoundComponent },
 ];
 

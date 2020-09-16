@@ -1,11 +1,11 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import {environment} from '../environments/environment'
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { FormsModule } from '@angular/Forms';
-import { FlashMessagesModule } from 'angular2-flash-messages';
+import { environment } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { FormsModule } from "@angular/Forms";
+import { FlashMessagesModule } from "angular2-flash-messages";
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -20,6 +20,8 @@ import { RegisterComponent } from "./components/register/register.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { AuthService } from "./services/auth.service";
+import { ClientService } from "./services/client.service";
 
 @NgModule({
   declarations: [
@@ -39,18 +41,16 @@ import { AppRoutingModule } from "./app-routing.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloudFirestore'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule,  // obavezno dodati za template driven formu
+    FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthService,ClientService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-
 
 // <!-- The core Firebase JS SDK is always required and must be listed first -->
 // <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>

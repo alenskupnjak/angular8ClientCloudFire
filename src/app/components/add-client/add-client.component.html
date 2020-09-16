@@ -88,9 +88,9 @@
         [ngClass]="{'is-invalid':clientPhone.errors && clientPhone.touched}"
         [(ngModel)]="client.phone"
         name="phone"
-          #clientPhone="ngModel"
-          minlength="9"
-          required>
+        #clientPhone="ngModel"
+        minlength="9"
+        required>
         <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
           Phone is required
         </div>
