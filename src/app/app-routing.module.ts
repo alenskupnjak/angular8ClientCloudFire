@@ -4,13 +4,12 @@ import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { AddClientComponent } from "./components/add-client/add-client.component";
 import { ClientDetailComponent } from "./components/client-detail/client-detail.component";
-import { ClientsComponent } from "./components/clients/clients.component";
 import { EditClientComponent } from "./components/edit-client/edit-client.component";
 import { LoginComponent } from "./components/auth/login/login.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { RegisterComponent } from "./components/auth/register/register.component";
 import { SettingsComponent } from "./components/settings/settings.component";
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { NavbarlogComponent } from "./logger/navbarlog/navbarlog.component";
 
 // GUARDS
 import { AuthGuard } from "./services/auth.guard";
@@ -40,6 +39,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: "settings", component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: "logger", component: NavbarlogComponent },
   // '**' mora biti zadnji u nizu
   { path: "**", component: NotFoundComponent },
 ];

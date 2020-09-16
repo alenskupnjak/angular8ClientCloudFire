@@ -25,6 +25,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AuthService } from "./services/auth.service";
 import { ClientService } from "./services/client.service";
 import { SettingsService } from "./services/settings.service";
+import { LogFormComponent } from './logger/log-form/log-form.component';
+import { LogsComponent } from './logger/logs/logs.component';
+import { NavbarlogComponent } from './logger/navbarlog/navbarlog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { SettingsService } from "./services/settings.service";
     RegisterComponent,
     SettingsComponent,
     NotFoundComponent,
+    LogFormComponent,
+    LogsComponent,
+    NavbarlogComponent,
   ],
   imports: [
     BrowserModule,
