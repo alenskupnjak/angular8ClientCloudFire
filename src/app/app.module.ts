@@ -20,8 +20,11 @@ import { RegisterComponent } from "./components/register/register.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { AppRoutingModule } from "./app-routing.module";
+
+// servisi
 import { AuthService } from "./services/auth.service";
 import { ClientService } from "./services/client.service";
+import { SettingsService } from "./services/settings.service";
 
 @NgModule({
   declarations: [
@@ -41,13 +44,16 @@ import { ClientService } from "./services/client.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'cloudFirestore'),
+    AngularFireModule.initializeApp(
+      environment.firebaseConfig,
+      "cloudFirestore"
+    ),
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
   ],
-  providers: [AuthService,ClientService],
+  providers: [AuthService, ClientService, SettingsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

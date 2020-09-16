@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Client } from "../../models/Client";
 import { ClientService } from "../../services/client.service";
 import { FlashMessagesService } from "angular2-flash-messages";
+import { SettingsService } from "../../services/settings.service";
 
 // obavezno dodati {FormsModule} za template driven formu !!!!!
 @Component({
@@ -11,7 +12,7 @@ import { FlashMessagesService } from "angular2-flash-messages";
   styleUrls: ["./add-client.component.css"],
 })
 export class AddClientComponent implements OnInit {
-  // početna vrijednost init
+  // init client
   client: Client = {
     firstName: "",
     lastName: "",
@@ -20,18 +21,29 @@ export class AddClientComponent implements OnInit {
     balance: 0,
   };
 
-  disableBalanceOnAdd: boolean = false;
+  // definiramo u settingsu, pocetno inicijalno stanje pojedinh parametara
+  disableBalanceOnAdd: boolean;
+
+
   @ViewChild("clientForm", { static: true }) form: any;
 
   constructor(
     private flashMessage: FlashMessagesService,
     private clientService: ClientService,
-    private router: Router
+    private router: Router,
+    private settingsService: SettingsService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    console.log('ajmooo',this.settingsService.getSettings());
+    this.disableBalanceOnAdd = this.settingsService.getSettings().disableBalanceOnAdd;
+  }
 
   onSubmit(formData) {
+    if (this.disableBalanceOnAdd) {
+      formData.value.balance = 0;
+    }
 
     this.client = {
       firstName: formData.value.firstName,
@@ -44,7 +56,6 @@ export class AddClientComponent implements OnInit {
     if (formData.value.balance < 0) {
       console.log("Mora biti veci od 0");
     }
-
 
     if (!formData.valid) {
       // Show error

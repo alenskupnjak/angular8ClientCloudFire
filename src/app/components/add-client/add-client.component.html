@@ -110,7 +110,7 @@
         name="balance"
         #clientBalance="ngModel"
         required
-        min= '0'
+        [disabled]="disableBalanceOnAdd"
         minlength="2">
 
         <div [hidden]="clientBalance.errors?.pattern" class="invalid-feedback">
@@ -120,10 +120,6 @@
           Broj mora biti veći od 0!
         </div>
         <div [hidden]="clientBalance.errors?.minlenght" class="invalid-feedback">
-          Broj mora biti veći od 0!
-        </div>
-
-        <div [hidden]="!clientBalance.errors?.min" class="invalid-feedback">
           Broj mora biti veći od 0!
         </div>
 

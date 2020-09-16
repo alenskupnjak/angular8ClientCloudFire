@@ -83,7 +83,8 @@
         class="form-control"
         [ngClass]="{'is-invalid':clientPhone.errors && clientPhone.touched}"
         [(ngModel)]="client.phone"
-        name="phone" #clientPhone="ngModel"
+        name="phone"
+        #clientPhone="ngModel"
         minlength="10"
         required>
         <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
@@ -97,8 +98,13 @@
 
       <div class="form-group">
         <label for="balance">Balance</label>
-        <input type="number" class="form-control" [(ngModel)]="client.balance" name="balance" #clientBalance="ngModel"
-          [disabled]="disableBalanceOnEdit">
+        <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="client.balance"
+        name="balance"
+        #clientBalance="ngModel"
+        [disabled]="disableBalanceOnEdit">
       </div>
 
       <input type="submit" value="Submit" class="btn btn-primary btn-block">
