@@ -2,15 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { Router } from "@angular/router";
 
-
-import {AuthService} from '../../services/auth.service'
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"],
 })
-
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
@@ -22,11 +20,10 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    
     this.authService.getAuth().subscribe((auth) => {
-      console.log('auth=',auth);
-
       if (auth) {
-        // this.router.navigate(["/"]);
+        this.router.navigate(["/"]);
       }
     });
   }
