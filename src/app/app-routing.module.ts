@@ -51,7 +51,6 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-
 // Using MULTUPLE guards for a route in Angular
 // The canActivate( ) method which should be overridden, should return only one of the following types
 //  - Observable<boolean>

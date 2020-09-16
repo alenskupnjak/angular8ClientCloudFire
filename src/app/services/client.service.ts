@@ -20,7 +20,6 @@ export class ClientService {
     private firestoreData: AngularFirestore
     ) {
     console.log('**** Ovo se aktivira samo prvi puta kada dolazim u aplikaciju **********');
-    console.log("this.firestoreData= ", this.firestoreData);
 
     // inicijalizacije baze
     this.clientsCollection = this.firestoreData.collection(

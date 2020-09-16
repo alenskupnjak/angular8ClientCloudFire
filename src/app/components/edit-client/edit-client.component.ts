@@ -3,7 +3,7 @@ import { ClientService } from "../../services/client.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { Client } from "../../models/Client";
-import { SettingsService } from '../../services/settings.service';
+import { SettingsService } from "../../services/settings.service";
 
 @Component({
   selector: "app-edit-client",
@@ -38,9 +38,11 @@ export class EditClientComponent implements OnInit {
     // Get id from url
     this.id = this.route.snapshot.params["id"];
     // Get client
-    this.clientService
-      .getOneClient(this.id)
-      .subscribe((client) => (this.client = client));
+    this.clientService.getOneClient(this.id).subscribe((client) => {
+      console.log(client);
+
+      this.client = client;
+    });
   }
 
   onSubmit(formData: any) {
@@ -76,5 +78,4 @@ export class EditClientComponent implements OnInit {
       this.router.navigate(["/client/" + this.id]);
     }
   }
-
 }

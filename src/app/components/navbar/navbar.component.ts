@@ -26,7 +26,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     // definiramo u settingsu, pocetno inicijalno stanje pojedinh parametara
     this.showRegister = this.settingService.getSettings().allowRegistration;
-    
+
+    // fire base sprema  auth- podatke u Indexdb local-storage....
     this.authService.getAuth().subscribe((auth) => {
       if (auth) {
         this.isLoggedIn = true;
