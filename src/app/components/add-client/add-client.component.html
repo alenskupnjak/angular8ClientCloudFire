@@ -104,12 +104,31 @@
         <label for="balance">Balance</label>
         <input
         type="number"
+        id='clientBalance'
         class="form-control"
         [(ngModel)]="client.balance"
-        name="balance"value
+        name="balance"
         #clientBalance="ngModel"
-        [disabled]="disableBalanceOnAdd">
+        required
+        min= '0'
+        minlength="2">
+
+        <div [hidden]="clientBalance.errors?.pattern" class="invalid-feedback">
+          Broj mora biti veći od 0!
+        </div>
+        <div *ngIf="!clientBalance.errors?.minlenght" class="invalid-feedback">
+          Broj mora biti veći od 0!
+        </div>
+        <div [hidden]="clientBalance.errors?.minlenght" class="invalid-feedback">
+          Broj mora biti veći od 0!
+        </div>
+
+        <div [hidden]="!clientBalance.errors?.min" class="invalid-feedback">
+          Broj mora biti veći od 0!
+        </div>
+
       </div>
+
 
       <!-- <input [disabled]="!clientForm.valid" type="submit" value="Submit" class="btn btn-primary btn-block"> -->
       <input type="submit" value="Submit" class="btn btn-primary btn-block">

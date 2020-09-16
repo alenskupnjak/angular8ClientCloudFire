@@ -18,24 +18,26 @@ export class ClientService {
   client: Observable<Client>;
 
   constructor(private firestoreData: AngularFirestore) {
-    console.log('this.firestoreData= ',this.firestoreData);
+    console.log("this.firestoreData= ", this.firestoreData);
 
-    this.clientsCollection = this.firestoreData.collection("clients", (ref) =>
-      ref.orderBy("lastName", "asc")
+    // inicijalizacije baze
+    this.clientsCollection = this.firestoreData.collection(
+      "databaseClients",
+      (ref) => ref.orderBy("lastName", "asc")
     );
   }
 
   // Povuci podatke o klijentima iz baze
   getAllClient(): Observable<Client[]> {
     // Get clients with the id
-    console.log('this.clientsCollection=',this.clientsCollection);
+    console.log("this.clientsCollection=", this.clientsCollection);
 
     this.clients = this.clientsCollection.snapshotChanges().pipe(
       map((changes, ind) => {
-        console.log(ind,'changes=',changes);
+        console.log(ind, "changes=", changes);
 
         return changes.map((action, index) => {
-          console.log(index,'action',action.payload.doc);
+          console.log(index, "action", action.payload.doc);
 
           const data = action.payload.doc.data() as Client;
           data.id = action.payload.doc.id;
@@ -43,18 +45,22 @@ export class ClientService {
         });
       })
     );
-      console.log('this.clients=',this.clients);
+    console.log("this.clients=", this.clients);
 
     return this.clients;
   }
 
+  //
+  // dodavanje novog klijenta
   newClient(client: Client) {
     this.clientsCollection.add(client);
   }
 
+  //
+  // Dohvati jednog klijenta
   getOneClient(id: string): Observable<Client> {
-    this.clientDoc = this.firestoreData.doc<Client>(`clients/${id}`);
-    console.log('this.clientDoc=',this.clientDoc);
+    this.clientDoc = this.firestoreData.doc<Client>(`databaseClients/${id}`);
+    console.log("this.clientDoc=", this.clientDoc);
 
     this.client = this.clientDoc.snapshotChanges().pipe(
       map((action) => {
@@ -69,5 +75,17 @@ export class ClientService {
     );
 
     return this.client;
+  }
+
+  // brisanje klijenta
+  deleteClient(client: Client) {
+    this.clientDoc = this.firestoreData.doc(`databaseClients/${client.id}`);
+    this.clientDoc.delete();
+  }
+
+  updateClient(client: Client) {
+    // clients je nazic baze!
+    this.clientDoc = this.firestoreData.doc(`databaseClients/${client.id}`);
+    this.clientDoc.update(client);
   }
 }

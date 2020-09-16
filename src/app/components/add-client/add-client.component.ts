@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { Client } from "../../models/Client";
 import { ClientService } from "../../services/client.service";
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { FlashMessagesService } from "angular2-flash-messages";
 
 // obavezno dodati {FormsModule} za template driven formu !!!!!
 @Component({
@@ -11,7 +11,6 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ["./add-client.component.css"],
 })
 export class AddClientComponent implements OnInit {
-
   // početna vrijednost init
   client: Client = {
     firstName: "",
@@ -33,18 +32,22 @@ export class AddClientComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(form) {
+    console.log(form);
 
     this.client = {
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       email: form.value.email,
       phone: form.value.phone,
+      balance: form.value.balance,
     };
 
-
-    if (this.disableBalanceOnAdd) {
-      form.balance = 0;
+    if (form.value.balance < 0) {
+      console.log("Mora biti veci od 0");
     }
+    // if (this.disableBalanceOnAdd) {
+    //   form.balance = 0;
+    // }
 
     if (!form.valid) {
       // Show error

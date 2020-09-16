@@ -23,23 +23,45 @@ export class ClientDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('showBalanceUpdateInput',this.showBalanceUpdateInput);
+    console.log(' hasBalance',this. hasBalance);
+
+
     // Get id from url PATH: client/:id
     this.id = this.route.snapshot.params["id"];
 
-    // Povuci kilinta
-    this.clientService.getOneClient(this.id).subscribe(client=>{
-      if(client != null) {
-        if(client.balance > 0) {
+    // Povuci kljenta
+    this.clientService.getOneClient(this.id).subscribe((client) => {
+      console.log('--------');
+
+      console.log(client);
+
+      if (client != null) {
+        if (client.balance > 0) {
           this.hasBalance = true;
         }
       }
-
+      // klijent definiran
       this.client = client;
-    })
+    });
   }
 
+  updateBalance() {
+    this.clientService.updateClient(this.client);
+    this.flashMessage.show('Balance updated', {
+      cssClass: 'alert-success', timeout: 4000
+    });
+  }
 
+  // obrisi klijenta
   onDeleteClick() {
-
+    if(confirm('Are you sure?')) {
+      this.clientService.deleteClient(this.client);
+      this.flashMessage.show('Client removed', {
+        cssClass: 'alert-success', timeout: 4000
+      });
+      this.router.navigate(['/']);
+    }
   }
+
 }
