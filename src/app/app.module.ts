@@ -25,10 +25,15 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AuthService } from "./services/auth.service";
 import { ClientService } from "./services/client.service";
 import { SettingsService } from "./services/settings.service";
-import { LogFormComponent } from './logger/log-form/log-form.component';
-import { LogsComponent } from './logger/logs/logs.component';
-import { NavbarlogComponent } from './logger/navbarlog/navbarlog.component';
-import { TemplateDrivenFormComponent } from './formtd/template-driven-form/template-driven-form.component';
+
+// logger
+import { LogFormComponent } from "./logger/log-form/log-form.component";
+import { LogsComponent } from "./logger/logs/logs.component";
+import { NavbarlogComponent } from "./logger/navbarlog/navbarlog.component";
+import { LogService } from "./logger/log.service";
+
+// formTD
+import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/template-driven-form.component";
 
 @NgModule({
   declarations: [
@@ -61,9 +66,7 @@ import { TemplateDrivenFormComponent } from './formtd/template-driven-form/templ
     FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
   ],
-  providers: [AuthService, ClientService, SettingsService],
+  providers: [AuthService, ClientService, SettingsService, LogService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-
