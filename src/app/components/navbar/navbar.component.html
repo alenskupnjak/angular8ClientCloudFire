@@ -12,11 +12,11 @@
       </ul>
 
 
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+      <ul   class="navbar-nav ml-auto">
+        <li *ngIf="showVjezbe" class="nav-item">
           <a routerLink="/logger" class="nav-link">Logger</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="showVjezbe" class="nav-item">
           <a routerLink="/formTD" class="nav-link">Form TD</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">

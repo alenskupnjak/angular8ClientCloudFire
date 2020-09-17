@@ -1,14 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 
-export interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-  isActive?: boolean;  // ? predstavlja opcionalno !!!
-  registered?: any;  // ? predstavlja opcionalno !!!
-  hide?: boolean;  // ? predstavlja opcionalno !!!
-  img?: string;  // ? predstavlja opcionalno !!!
-}
 
 @Component({
   selector: "app-template-driven-form",
@@ -25,8 +16,10 @@ export class TemplateDrivenFormComponent implements OnInit {
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
-  enableAdd: boolean = false;
+  enableAdd: boolean = true;
   showForm: boolean = false;
+  currentClass: {}
+  currentStyle: {}
   @ViewChild("userForm", { static: true }) form: any;
 
   constructor() {}
@@ -49,7 +42,6 @@ export class TemplateDrivenFormComponent implements OnInit {
         isActive: false,
         registered: new Date("03/11/2017 06:20:00"),
         hide: true,
-        img:'http://lorempixel.com/400/200/people/2'
       },
       {
         firstName: "Karen",
@@ -60,9 +52,12 @@ export class TemplateDrivenFormComponent implements OnInit {
         hide: true,
         img:'http://lorempixel.com/400/200/people/4'
       },
+
     ];
 
     this.loaded = true;
+    this.setCurrentClases();
+    this. setcurrentStyle();
   }
 
   onSubmit({ value, valid }: { value: User; valid: boolean }) {
@@ -75,7 +70,22 @@ export class TemplateDrivenFormComponent implements OnInit {
 
       this.users.unshift(value);
 
-      this.form.reset();
+      // this.form.reset();
+    }
+  }
+
+  setCurrentClases(){
+    this.currentClass = {
+      'btn-success': this.enableAdd,
+      'big-text': this.showExtended
+    }
+  }
+
+  setcurrentStyle(){
+    this.currentStyle = {
+      'padding-top': this.showExtended ? '' : '40px',
+      'big-text': this.showExtended,
+      'color': this.showExtended ? 'red' : 'blue'
     }
   }
 
@@ -83,3 +93,18 @@ export class TemplateDrivenFormComponent implements OnInit {
     this.users.splice(index, 1);
   }
 }
+
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  isActive?: boolean;  // ? predstavlja opcionalno !!!
+  registered?: any;  // ? predstavlja opcionalno !!!
+  hide?: boolean;  // ? predstavlja opcionalno !!!
+  img?: string;  // ? predstavlja opcionalno !!!
+}
+
+
+
+

@@ -1,14 +1,7 @@
 import { Injectable, OnInit } from "@angular/core";
+import { Subject } from "rxjs";
 
-// interface mportiran kroz file
-// import { Settings } from '../models/Settings';
-
-// interface unutar componente
-export interface Settings {
-  allowRegistration?: boolean;
-  disableBalanceOnAdd?: boolean;
-  disableBalanceOnEdit?: boolean;
-}
+import { Settings } from "../models/Settings";
 
 @Injectable()
 // pocetno stanje
@@ -18,21 +11,34 @@ export class SettingsService {
     allowRegistration: true,
     disableBalanceOnAdd: true,
     disableBalanceOnEdit: true,
+    ukljuciVjezbe: false,
   };
 
+  // observer koji ce obavijestiti navnar da se je stanje u settingu promjenilo
+  private settingsUpdated = new Subject<{ settings: Settings }>();
+
   constructor() {
-    console.log(' da da da SettingsService');
+    console.log(" da da da SettingsService");
     if (localStorage.getItem("settingsAngularClient") != null) {
       this.settings = JSON.parse(localStorage.getItem("settingsAngularClient"));
     }
   }
 
 
+    // *********************************************
+  // OBSERVABLE - ova funkcija je triger na promjene u settings podacima
+  getsettingsUpdateListener() {
+    // ako se mijenja vrijednost postupdate, salje signal
+    return this.settingsUpdated.asObservable();
+  }
+
   getSettings() {
     return this.settings;
   }
 
   changeSettings(settings: Settings) {
+    this.settings = settings;
     localStorage.setItem("settingsAngularClient", JSON.stringify(settings));
+    this.settingsUpdated.next({ settings: this.settings });
   }
 }
