@@ -4,7 +4,7 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { FormsModule } from "@angular/Forms";
+import { FormsModule } from "@angular/Forms"; // ngmodule
 import { FlashMessagesModule } from "angular2-flash-messages";
 
 import { AppComponent } from "./app.component";

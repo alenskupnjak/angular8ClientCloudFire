@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 
 
+
+// import { FormsModule } from "@angular/Forms"; u app.module !!!!!za ngModule
+
+
 @Component({
   selector: "app-template-driven-form",
   templateUrl: "./template-driven-form.component.html",
@@ -20,6 +24,7 @@ export class TemplateDrivenFormComponent implements OnInit {
   showForm: boolean = false;
   currentClass: {}
   currentStyle: {}
+  // zakorištenje forme..
   @ViewChild("userForm", { static: true }) form: any;
 
   constructor() {}
@@ -33,7 +38,8 @@ export class TemplateDrivenFormComponent implements OnInit {
         isActive: true,
         registered: new Date("01/02/2018 08:30:00"),
         hide: true,
-        img:'http://lorempixel.com/400/200/people/1'
+        img:'http://lorempixel.com/400/200/people/1',
+        balans: 111
       },
       {
         firstName: "Kevin",
@@ -42,6 +48,7 @@ export class TemplateDrivenFormComponent implements OnInit {
         isActive: false,
         registered: new Date("03/11/2017 06:20:00"),
         hide: true,
+        balans: 200
       },
       {
         firstName: "Karen",
@@ -50,14 +57,15 @@ export class TemplateDrivenFormComponent implements OnInit {
         isActive: true,
         registered: new Date("11/02/2016 10:30:00"),
         hide: true,
-        img:'http://lorempixel.com/400/200/people/4'
+        img:'http://lorempixel.com/400/200/people/4',
+        balans: 333
       },
 
     ];
 
     this.loaded = true;
     this.setCurrentClases();
-    this. setcurrentStyle();
+    this.setcurrentStyle();
   }
 
   onSubmit({ value, valid }: { value: User; valid: boolean }) {
@@ -92,6 +100,19 @@ export class TemplateDrivenFormComponent implements OnInit {
   deleteUser(index) {
     this.users.splice(index, 1);
   }
+
+  slusaj(e, user) {
+    // mouseover, mouseout, mousedown, mouseup, dblclick
+    console.log(e);
+    console.log(user);
+
+  }
+
+  fireEvent(e) {
+    console.log(e);
+    console.log(e.target.value, e.type);
+
+  }
 }
 
 
@@ -103,6 +124,7 @@ export interface User {
   registered?: any;  // ? predstavlja opcionalno !!!
   hide?: boolean;  // ? predstavlja opcionalno !!!
   img?: string;  // ? predstavlja opcionalno !!!
+  balans?: number;  // ? predstavlja opcionalno !!!
 }
 
 

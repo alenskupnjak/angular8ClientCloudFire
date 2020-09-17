@@ -24,7 +24,7 @@ export class ClientDetailComponent implements OnInit {
 
   ngOnInit() {
     console.log('showBalanceUpdateInput',this.showBalanceUpdateInput);
-    console.log(' hasBalance',this. hasBalance);
+    console.log(' hasBalance',this.hasBalance);
 
 
     // Get id from url PATH: client/:id

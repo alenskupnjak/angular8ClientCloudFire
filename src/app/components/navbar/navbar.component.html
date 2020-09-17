@@ -13,11 +13,11 @@
 
 
       <ul   class="navbar-nav ml-auto">
-        <li *ngIf="showVjezbe" class="nav-item">
+        <li *ngIf="showVjezbe && isLoggedIn" class="nav-item">
           <a routerLink="/logger" class="nav-link">Logger</a>
         </li>
-        <li *ngIf="showVjezbe" class="nav-item">
-          <a routerLink="/formTD" class="nav-link">Form TD</a>
+        <li *ngIf="showVjezbe && isLoggedIn" class="nav-item">
+          <a routerLink="/formTD" class="nav-link">FormTD</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
           <a href="" class="nav-link">{{ loggedInUser}}</a>
