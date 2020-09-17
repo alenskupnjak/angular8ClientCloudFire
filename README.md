@@ -1,21 +1,20 @@
 # Angular8ClientCloudFire
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
+This project was generated with version 8.3.25.
 
 ## FIREBASE
 Aplikacija je spojena sa Firebase Cloud, baza cloudfirestore-9984e
 
 
 ## Bootstrap 4
-Za instalaciju bootstrapa je potrebno:
-NPM i bootstrap
-NPM i jquery 
-NPM i popper.js
+Za instalaciju bootstrapa 4 još je i potrebno:
+- NPM i bootstrap
+- NPM i jquery 
+- NPM i popper.js
 
 ..... ANGULAR.JSON
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
@@ -34,7 +33,6 @@ NPM i font-awesome
             "styles": [
               "src/styles.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
 '''..
 

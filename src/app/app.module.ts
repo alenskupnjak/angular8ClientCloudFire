@@ -28,6 +28,7 @@ import { SettingsService } from "./services/settings.service";
 import { LogFormComponent } from './logger/log-form/log-form.component';
 import { LogsComponent } from './logger/logs/logs.component';
 import { NavbarlogComponent } from './logger/navbarlog/navbarlog.component';
+import { TemplateDrivenFormComponent } from './formtd/template-driven-form/template-driven-form.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NavbarlogComponent } from './logger/navbarlog/navbarlog.component';
     LogFormComponent,
     LogsComponent,
     NavbarlogComponent,
+    TemplateDrivenFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,27 +66,4 @@ import { NavbarlogComponent } from './logger/navbarlog/navbarlog.component';
 })
 export class AppModule {}
 
-// <!-- The core Firebase JS SDK is always required and must be listed first -->
-// <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
 
-// <!-- TODO: Add SDKs for Firebase products that you want to use
-//      https://firebase.google.com/docs/web/setup#available-libraries -->
-// <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
-
-// <script>
-//   // Your web app's Firebase configuration
-//   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-//   var firebaseConfig = {
-//     apiKey: "AIzaSyDm_wjyGn5sSAVxwKI4CNBRelLrVXguKoE",
-//     authDomain: "cloudfirestore-9984e.firebaseapp.com",
-//     databaseURL: "https://cloudfirestore-9984e.firebaseio.com",
-//     projectId: "cloudfirestore-9984e",
-//     storageBucket: "cloudfirestore-9984e.appspot.com",
-//     messagingSenderId: "1050125717014",
-//     appId: "1:1050125717014:web:e74f6e20ee952191fb6f37",
-//     measurementId: "G-X7X8NKGF1W"
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-//   firebase.analytics();
-// </script>
