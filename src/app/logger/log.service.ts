@@ -28,6 +28,7 @@ export class LogService {
       // podaci postoje u localstorage ocitavamo podatke
       this.logs = JSON.parse(localStorage.getItem("logsLogger"));
     }
+console.log('prosao sam -----------------');
 
     // rxjs funkcija...
     return of(this.logs)
@@ -47,7 +48,6 @@ export class LogService {
 
   // ADD
   addLog(log: Logger) {
-
     // dodajem na listu , vrsi se promjena
     this.logs.unshift(log);
 
