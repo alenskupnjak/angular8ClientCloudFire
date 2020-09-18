@@ -23,22 +23,18 @@ export class LogsComponent implements OnInit {
 
   ngOnInit() {
     // inicijalno ucitavanje podataka iz localstorage
-
     this.logService.getLogs().subscribe((logs) => {
       this.logs = logs;
       this.loaded = true;
     });
-    // setiramo OBSERVER za pracenje promjene statusa
-    this.logService.stateClear.subscribe((clear) => {
-      console.log("xxx");
 
+    // setiramo OBSERVER za pracenje promjene statusa
+    this.logService.stateSourceObser.subscribe((clear) => {
+      console.log("Status se je promjenio");
       if (clear) {
         this.selectedLog = { id: "", text: "", date: "" };
       }
     });
-
-
-    console.log(new Date().getTime());
   }
 
   // selektiramo

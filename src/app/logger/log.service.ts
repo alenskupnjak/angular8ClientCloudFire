@@ -7,34 +7,36 @@ import { Logger } from "./LogModel";
 export class LogService {
   logs: Logger[] = [];
 
-  // definiram OBSERVER za promjenu podataka
-  private logSource = new BehaviorSubject<Logger>({
-    id: null,
-    text: null,
-    date: null,
-  });
-  selectedLog = this.logSource.asObservable();
+  // definiram OBSERVER za promjenu podataka koji ocitava logs.form
+  private logSource = new BehaviorSubject<any>({id: null,text: null,date: null});
+  logSourceObser = this.logSource.asObservable();
 
-  // definiram OBSERVER
+  // definiram OBSERVER koji ide u logs
   private stateSource = new BehaviorSubject<boolean>(true);
-  stateClear = this.stateSource.asObservable();
+  stateSourceObser = this.stateSource.asObservable();
 
-  constructor() {}
+  constructor() {
+    console.log('Prosao sam kroz constructor log.service');
+  }
 
   // iako su podaci statički, radimo imitaciju HTTP-a
   getLogs(): Observable<Logger[]> {
-    // ako NEMAMO podataka u Local storage
+    // ako NEMAMO podataka u Local storage postavljamo prazno polje
     if (localStorage.getItem("logsLogger") === null) {
       this.logs = [];
     } else {
+      // podaci postoje u localstorage ocitavamo podatke
       this.logs = JSON.parse(localStorage.getItem("logsLogger"));
     }
 
-    return of(
-      this.logs.sort((a, b) => {
-        return (b.date = a.date);
-      })
-    );
+    // rxjs funkcija...
+    return of(this.logs)
+
+    // return of(
+    //   this.logs.sort((a, b) => {
+    //     return (b.date = a.date);
+    //   })
+    // );
   }
 
   // saljemo promjenu u
@@ -42,8 +44,11 @@ export class LogService {
     this.logSource.next(log);
   }
 
+
   // ADD
   addLog(log: Logger) {
+
+    // dodajem na listu , vrsi se promjena
     this.logs.unshift(log);
 
     // Add to local storage

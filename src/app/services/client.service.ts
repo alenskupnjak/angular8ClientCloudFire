@@ -19,7 +19,7 @@ export class ClientService {
     // kljucni parametar koji aktivira Firebase
     private firestoreData: AngularFirestore
     ) {
-    console.log('**** Ovo se aktivira samo prvi puta kada dolazim u aplikaciju **********');
+    console.log('Ovo se aktivira samo prvi puta kada dolazim u aplikaciju');
 
     // inicijalizacije baze
     this.clientsCollection = this.firestoreData.collection(

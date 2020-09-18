@@ -39,7 +39,6 @@ export class AuthService {
   getAuth() {
     return this.afAuth.authState.pipe(
       map((auth) => {
-        console.log(auth, "auth xxxxxxxxxxxxxxxxxxx");
         return auth;
       })
     );

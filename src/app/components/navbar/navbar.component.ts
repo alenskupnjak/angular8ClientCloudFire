@@ -50,7 +50,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       if (auth) {
         this.isLoggedIn = true;
         this.loggedInUser = auth.email;
-        console.log(this.loggedInUser);
       } else {
         this.isLoggedIn = false;
       }

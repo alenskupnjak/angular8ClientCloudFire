@@ -14,15 +14,16 @@ export class LogFormComponent implements OnInit {
   text: string;
   date: any;
 
+  // definiramo dali je zapis novi ili je editirani
   isNew: boolean = true;
 
   constructor(private logService: LogService) {}
 
   ngOnInit() {
     // Subscribe to the selectedLog observable
-    this.logService.selectedLog.subscribe((log) => {
-      console.log('aktiviram se samo kod promjene podataka');
-
+    this.logService.logSourceObser.subscribe((log) => {
+      console.log("Aktiviram se i kod promjene podataka");
+      // setiram pocetno stanje
       if (log.id !== null) {
         this.isNew = false;
         this.id = log.id;
@@ -75,5 +76,11 @@ export class LogFormComponent implements OnInit {
         v = c == "x" ? r : (r & 0x3) | 0x8;
       return v.toString(16);
     });
+  }
+
+
+  vidi(e) {
+    console.log(e);
+    console.log(this.isNew);
   }
 }
