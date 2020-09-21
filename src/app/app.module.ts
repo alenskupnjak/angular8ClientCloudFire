@@ -4,7 +4,7 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { FormsModule } from "@angular/Forms"; // ngmodule
+import { FormsModule } from "@angular/forms"; // ngmodule
 import { FlashMessagesModule } from "angular2-flash-messages";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -36,10 +36,7 @@ import { LogService } from "./logger/log.service";
 // formTD
 import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/template-driven-form.component";
 
-// Emitt
-import { PostFormComponent } from "./emitt/post-form/post-form.component";
-import { PostsComponent } from "./emitt/posts/posts.component";
-
+import { PostModule } from "./emitt/post.module";
 import { PostService } from "./emitt/post.service";
 
 @NgModule({
@@ -59,9 +56,7 @@ import { PostService } from "./emitt/post.service";
     LogFormComponent,
     LogsComponent,
     NavbarlogComponent,
-    TemplateDrivenFormComponent,
-    PostFormComponent,
-    PostsComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +70,7 @@ import { PostService } from "./emitt/post.service";
     FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
     HttpClientModule,
+    PostModule
   ],
   providers: [
     AuthService,

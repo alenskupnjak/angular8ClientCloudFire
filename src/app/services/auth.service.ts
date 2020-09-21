@@ -5,8 +5,7 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class AuthService {
   constructor(private afAuth: AngularFireAuth) {
-    console.log('da da da   AuthService');
-
+    console.log("da da da   AuthService");
   }
 
   // logiranje korisnika
