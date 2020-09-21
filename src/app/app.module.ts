@@ -6,7 +6,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { FormsModule } from "@angular/Forms"; // ngmodule
 import { FlashMessagesModule } from "angular2-flash-messages";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -39,8 +39,6 @@ import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/templ
 // Emitt
 import { PostFormComponent } from "./emitt/post-form/post-form.component";
 import { PostsComponent } from "./emitt/posts/posts.component";
-
-
 
 import { PostService } from "./emitt/post.service";
 
@@ -76,7 +74,7 @@ import { PostService } from "./emitt/post.service";
     AngularFireAuthModule,
     FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthService,

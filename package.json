@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start5001": "ng serve --port 5001 --open",
-    "build": "ng build",
+    "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "compodoc": "npx compodoc -p tsconfig.json -s -o --theme material"
