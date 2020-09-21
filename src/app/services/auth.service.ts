@@ -43,6 +43,7 @@ export class AuthService {
     );
   }
 
+  // odlogiranje
   logout() {
     this.afAuth.signOut();
   }
