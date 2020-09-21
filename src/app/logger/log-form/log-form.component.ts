@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
 import { LogService } from "../log.service";
-
-import { Logger } from "../LogModel";
 
 @Component({
   selector: "app-log-form",

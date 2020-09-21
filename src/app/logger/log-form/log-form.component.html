@@ -3,7 +3,7 @@
     <div class="form-group ">
       <input type="text" name="text" [(ngModel)]="text" class="form-control " placeholder="Add a log...">
     </div>
-    <input type="submit"  value="Add Log" class="btn bg-info" [disabled]="!this.text">
+    <input type="submit"  [value]="isNew ? 'Add': 'Edit Mode'" class="btn bg-info" [disabled]="!this.text">
     <button (click)="clearState()" type="button" class="btn btn-warning" [hidden]=!this.text>Clear</button>
   </form>
 </div>

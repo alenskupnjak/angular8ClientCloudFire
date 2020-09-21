@@ -6,6 +6,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { FormsModule } from "@angular/Forms"; // ngmodule
 import { FlashMessagesModule } from "angular2-flash-messages";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -35,6 +36,14 @@ import { LogService } from "./logger/log.service";
 // formTD
 import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/template-driven-form.component";
 
+// Emitt
+import { PostFormComponent } from "./emitt/post-form/post-form.component";
+import { PostsComponent } from "./emitt/posts/posts.component";
+
+
+
+import { PostService } from "./emitt/post.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +62,8 @@ import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/templ
     LogsComponent,
     NavbarlogComponent,
     TemplateDrivenFormComponent,
+    PostFormComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +76,15 @@ import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/templ
     AngularFireAuthModule,
     FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [AuthService, ClientService, SettingsService, LogService],
+  providers: [
+    AuthService,
+    ClientService,
+    SettingsService,
+    LogService,
+    PostService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

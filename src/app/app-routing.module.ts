@@ -11,6 +11,7 @@ import { RegisterComponent } from "./components/auth/register/register.component
 import { SettingsComponent } from "./components/settings/settings.component";
 import { NavbarlogComponent } from "./logger/navbarlog/navbarlog.component";
 import { TemplateDrivenFormComponent } from "./formtd/template-driven-form/template-driven-form.component";
+import { PostsComponent } from "./emitt/posts/posts.component";
 
 // GUARDS
 import { AuthGuard } from "./services/auth.guard";
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: "settings", component: SettingsComponent, canActivate: [AuthGuard] },
   { path: "logger", component: NavbarlogComponent },
   { path: "formTD", component: TemplateDrivenFormComponent },
+  { path: "emitter", component: PostsComponent },
   // '**' mora biti zadnji u nizu
   { path: "**", component: NotFoundComponent },
 ];

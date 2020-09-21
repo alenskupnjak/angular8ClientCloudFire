@@ -13,7 +13,7 @@ export class LogsComponent implements OnInit {
   loggerLoc: Logger[];
 
   // log koji je selektiran
-  // selectedLog: Logger;
+  selectedLog: Logger;
   // pocetno stanje prije usnimavanja
   loaded: boolean = false;
 
@@ -35,7 +35,7 @@ export class LogsComponent implements OnInit {
     this.logService.stateSourceObser.subscribe((clear) => {
       console.log("Status se je promjenio");
       if (clear) {
-        // this.selectedLog = { id: "", text: "", date: "" };
+        this.selectedLog = { id: "", text: "", date: "" };
       }
     });
   }
@@ -43,7 +43,7 @@ export class LogsComponent implements OnInit {
   // selektiramo
   onSelect(log: Logger) {
     this.logService.setFormLog(log);
-    // this.selectedLog = log;
+    this.selectedLog = log;
   }
 
   onDelete(log: Logger) {
