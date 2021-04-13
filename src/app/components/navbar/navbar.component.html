@@ -11,7 +11,6 @@
         </li>
       </ul>
 
-
       <ul   class="navbar-nav ml-auto">
         <li *ngIf="showVjezbe && isLoggedIn" class="nav-item">
           <a routerLink="/logger" class="nav-link">Logger</a>
@@ -23,7 +22,7 @@
           <a routerLink="/emitter" class="nav-link">Emitter</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
-          <a href="" class="nav-link">{{ loggedInUser}}</a>
+          <a href="" class="nav-link"> <i class="fas fa-user"></i> {{ loggedInUser }}</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
           <a routerLink="/settings" class="nav-link">Setings</a>

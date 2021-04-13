@@ -56,7 +56,7 @@ import { PostService } from "./emitt/post.service";
     LogFormComponent,
     LogsComponent,
     NavbarlogComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +70,7 @@ import { PostService } from "./emitt/post.service";
     FormsModule, // obavezno dodati za template driven formu
     FlashMessagesModule.forRoot(),
     HttpClientModule,
-    PostModule
+    PostModule,
   ],
   providers: [
     AuthService,

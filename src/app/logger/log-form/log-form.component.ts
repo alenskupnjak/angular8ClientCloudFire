@@ -75,7 +75,6 @@ export class LogFormComponent implements OnInit {
     });
   }
 
-
   vidi(e) {
     console.log(e);
     console.log(this.isNew);

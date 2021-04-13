@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate, CanActivateChild, Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(
     private router: Router,
     private angularFirebaseAuth: AngularFireAuth
@@ -23,8 +23,20 @@ export class AuthGuard implements CanActivate {
       })
     );
   }
-}
 
+  canActivateChild(): Observable<boolean> {
+    return this.angularFirebaseAuth.authState.pipe(
+      map((auth) => {
+        if (!auth) {
+          this.router.navigate(["/login"]);
+          return false;
+        } else {
+          return true;
+        }
+      })
+    );
+  }
+}
 
 // dodati u app-routing.module.ts
 // ....providers: [AuthGuard], // obavezno ovdje dodajemo zastitu za rute ako to zelimo

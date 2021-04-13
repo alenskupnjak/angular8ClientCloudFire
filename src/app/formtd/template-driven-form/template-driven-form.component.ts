@@ -25,7 +25,7 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
   showForm: boolean = false;
   currentClass: {};
   currentStyle: {};
-  // zakorištenje forme..
+  // za korištenje forme..
   @ViewChild("userForm", { static: true }) form: any;
 
   constructor(private loggerServis: LogService) {}

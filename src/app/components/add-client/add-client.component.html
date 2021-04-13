@@ -3,6 +3,12 @@
     <a routerLink="/" class="btn btn-link">
       <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
     </a>
+    <a [routerLink]="['./pokus']" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-right"></i> Na link Pokus
+    </a>
+    <a [routerLink]="['.']" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Nazad
+    </a>
   </div>
   <div class="col-md-6">
     <!-- namjerno stavljeno prazno za eventualno nesto dodatii -->
@@ -131,3 +137,5 @@
     </form>
   </div>
 </div>
+
+<router-outlet></router-outlet>

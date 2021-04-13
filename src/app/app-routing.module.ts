@@ -16,6 +16,7 @@ import { PostsComponent } from "./emitt/posts/posts.component";
 // GUARDS
 import { AuthGuard } from "./services/auth.guard";
 import { RegisterGuard } from "./services/register.guard";
+import { LogFormComponent } from './logger/log-form/log-form.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, canActivate: [AuthGuard] },
@@ -29,6 +30,8 @@ const routes: Routes = [
     path: "client/add",
     component: AddClientComponent,
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [{ path: "pokus", component: LogFormComponent }],
   },
   {
     path: "client/edit/:id",

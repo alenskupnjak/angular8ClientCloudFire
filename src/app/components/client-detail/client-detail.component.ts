@@ -31,7 +31,6 @@ export class ClientDetailComponent implements OnInit {
 
     // Povuci kljenta
     this.clientService.getOneClient(this.id).subscribe((client) => {
-      console.log("--------");
 
       console.log(client);
 

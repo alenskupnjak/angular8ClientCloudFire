@@ -14,11 +14,11 @@ export class SettingsService {
     ukljuciVjezbe: false,
   };
 
-  // observer koji ce obavijestiti navnar da se je stanje u settingu promjenilo
+  // observer koji ce obavijestiti navbar da se je stanje u settingu promjenilo
   private settingsUpdated = new Subject<{ settings: Settings }>();
 
   constructor() {
-    console.log(" da da da SettingsService");
+    console.log("SettingsService iniciran");
     if (localStorage.getItem("settingsAngularClient") != null) {
       this.settings = JSON.parse(localStorage.getItem("settingsAngularClient"));
     }

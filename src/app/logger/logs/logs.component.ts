@@ -28,7 +28,7 @@ export class LogsComponent implements OnInit {
       console.log("prosao sam i ja");
 
       this.loggerLoc = logs; // podaci su usnimljeni
-      this.loaded = true; // podaci su usnimljeni, sluzi nam za spinerr
+      this.loaded = true; // podaci su usnimljeni, sluzi nam za sppiner
     });
 
     // setiramo OBSERVER za pracenje promjene statusa
